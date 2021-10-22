@@ -2,7 +2,6 @@ package com.adolf.chaos.cache.comp;
 
 import com.adolf.chaos.cache.RedisHashHandler;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
 import org.springframework.data.redis.core.HashOperations;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
@@ -26,7 +25,6 @@ import java.util.Set;
  * @date 2021/10/22 上午8:44
  */
 @Component
-@ConditionalOnExpression("${spring.redis.enableHandler:false}")
 public class CacheHashCompRidesImpl implements RedisHashHandler<String,Object> {
 
     private HashOperations<String, String, Object> hashOperations;

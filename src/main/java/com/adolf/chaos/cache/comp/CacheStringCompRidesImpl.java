@@ -2,7 +2,6 @@ package com.adolf.chaos.cache.comp;
 
 import com.adolf.chaos.cache.RedisStringHandler;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Component;
@@ -25,7 +24,6 @@ import java.util.concurrent.TimeUnit;
  * @date 2021/10/22 上午8:19
  */
 @Component
-@ConditionalOnExpression("${spring.redis.enableHandler:false}")
 public class CacheStringCompRidesImpl implements RedisStringHandler<String, Object> {
 
     @Autowired

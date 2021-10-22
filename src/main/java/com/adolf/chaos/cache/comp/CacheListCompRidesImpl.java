@@ -2,7 +2,6 @@ package com.adolf.chaos.cache.comp;
 
 import com.adolf.chaos.cache.RedisListHandler;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
 import org.springframework.data.redis.core.ListOperations;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
@@ -24,7 +23,6 @@ import java.util.concurrent.TimeUnit;
  * @date 2021/10/22 上午8:35
  */
 @Component
-@ConditionalOnExpression("${spring.redis.enableHandler:false}")
 public class CacheListCompRidesImpl implements RedisListHandler<String, Object> {
 
     private ListOperations<String, Object> listOperations;

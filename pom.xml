@@ -10,7 +10,7 @@
 
     <groupId>com.adolf.chaos</groupId>
     <artifactId>chaos_engineer</artifactId>
-    <version>0.0.2-SNAPSHOT</version>
+    <version>0.0.3-RELEASE</version>
     <name>chaos_engineer</name>
     <description>chaos_engineer</description>
 
@@ -226,5 +226,22 @@
             <artifactId>elasticsearch</artifactId>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

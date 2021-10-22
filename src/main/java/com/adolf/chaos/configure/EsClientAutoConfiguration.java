@@ -2,6 +2,7 @@ package com.adolf.chaos.configure;
 
 import cn.hutool.core.util.StrUtil;
 import com.adolf.chaos.configure.props.EsConfiguration;
+import com.adolf.chaos.support.ElasticsearchHandler;
 import org.apache.http.HttpHost;
 import org.apache.http.auth.AuthScope;
 import org.apache.http.auth.UsernamePasswordCredentials;
@@ -44,7 +45,7 @@ public class EsClientAutoConfiguration {
 
     @Bean
     @ConditionalOnExpression("${es.client:false}")
-    @ConditionalOnMissingBean
+    @ConditionalOnMissingBean(RestHighLevelClient.class)
     public RestHighLevelClient restHighLevelClient() {
         List<String> clusterNodes = esConfiguration.getClusterNodes();
         if (clusterNodes.isEmpty()) {
@@ -62,6 +63,13 @@ public class EsClientAutoConfiguration {
         });
         RestClientBuilder builder = RestClient.builder(httpHosts.toArray(new HttpHost[0]));
         return getRestHighLevelClient(builder, esConfiguration);
+    }
+
+    @Bean
+    @ConditionalOnExpression("${es.client:false}")
+    @ConditionalOnMissingBean(ElasticsearchHandler.class)
+    public ElasticsearchHandler elasticsearchHandler() {
+        return new ElasticsearchHandler();
     }
 
     /**
