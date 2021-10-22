@@ -39,7 +39,7 @@ public class RedisAutoConfiguration {
     private RedisConfiguration redisConfiguration;
 
     @Bean
-    @ConditionalOnExpression("${spring.redis.lockEnabled:false}")
+    @ConditionalOnExpression("${spring.redis.enableLock:false}")
     @ConditionalOnMissingBean(RedissonClient.class)
     @Order(Ordered.LOWEST_PRECEDENCE - 200)
     public RedissonClient redissonClient() {
