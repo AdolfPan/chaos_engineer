@@ -1,0 +1,5 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.adolf.chaos.configure.props.RedisConfiguration,\
+  com.adolf.chaos.configure.props.EsConfiguration,\
+  com.adolf.chaos.configure.RedisAutoConfiguration,\
+  com.adolf.chaos.configure.EsClientAutoConfiguration

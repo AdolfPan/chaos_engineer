@@ -1,2 +1,2 @@
 # chaos_engineer
-a ring around chaotic services.
+A ring around chaotic services.
