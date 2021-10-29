@@ -84,7 +84,7 @@ public class RedisAutoConfiguration {
         }
         config.setLockWatchdogTimeout(15*1000);
         String os = System.getProperty("os.name");
-        config.setTransportMode(StrUtil.isNotBlank(os) && !os.toLowerCase().startsWith("windows")?
+        config.setTransportMode(StrUtil.isNotBlank(os) && StrUtil.containsAnyIgnoreCase(os, "Linux")?
                 TransportMode.EPOLL:
                 TransportMode.NIO);
         return Redisson.create(config);
