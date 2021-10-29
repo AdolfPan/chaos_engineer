@@ -137,7 +137,11 @@
                 <artifactId>spring-boot-starter-data-redis</artifactId>
                 <version>2.2.11.RELEASE</version>
             </dependency>
-
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-all</artifactId>
+                <version>4.1.53.Final</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -145,6 +149,10 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-all</artifactId>
         </dependency>
         <dependency>
             <groupId>org.redisson</groupId>
